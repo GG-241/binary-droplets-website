@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Binary Droplet — Modern software engineering and consulting company. We design, build, modernize, and scale digital products across mobile, web, cloud, and AI.">
+  <title>Binary Droplet | Digital Engineering Partner</title>
+  <link rel="icon" href="assets/logo_transparent_bg.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Apply theme before render to prevent flash -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('bd-theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- ═══════════════════════════ LOADER ═══════════════════════════ -->
+  <div id="loader">
+    <img id="loader-img" src="assets/logo_loading_dark.gif" alt="Loading">
+  </div>
+
+  <!-- ═══════════════════════════ NAVBAR ══════════════════════════ -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo" aria-label="Binary Droplet home">
+        <img id="nav-logo-img" src="assets/logo_dark.png" alt="Binary Droplet">
+      </a>
+
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#services"     class="nav-link" data-i18n="nav.services">Services</a>
+        <a href="#technologies" class="nav-link" data-i18n="nav.technologies">Technologies</a>
+        <a href="#ai"           class="nav-link" data-i18n="nav.ai">AI</a>
+        <a href="#industries"   class="nav-link" data-i18n="nav.industries">Industries</a>
+        <a href="#why-us"       class="nav-link" data-i18n="nav.whyUs">Why Us</a>
+      </nav>
+
+      <div class="nav-controls">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle colour theme">
+          <!-- Sun -->
+          <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1"  x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22"   x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1"  y1="12" x2="3"  y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78"  x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- Moon -->
+          <svg class="icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Language switcher -->
+        <div class="lang-switcher" id="lang-switcher">
+          <button id="lang-btn" class="icon-btn lang-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select language">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span id="lang-label">EN</span>
+          </button>
+          <div id="lang-dropdown" class="lang-dropdown" role="listbox" aria-label="Language">
+            <button class="lang-option" data-lang="en" role="option" aria-selected="true">EN — English</button>
+            <button class="lang-option" data-lang="el" role="option" aria-selected="false">ΕΛ — Ελληνικά</button>
+            <button class="lang-option" data-lang="de" role="option" aria-selected="false">DE — Deutsch</button>
+            <button class="lang-option" data-lang="fr" role="option" aria-selected="false">FR — Français</button>
+            <button class="lang-option" data-lang="es" role="option" aria-selected="false">ES — Español</button>
+            <button class="lang-option" data-lang="ru" role="option" aria-selected="false">RU — Русский</button>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-sm btn-primary nav-cta" data-i18n="nav.cta">Get in Touch</a>
+
+        <button id="hamburger" class="hamburger icon-btn" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+
+  <!-- ═══════════════════════════ HERO ════════════════════════════ -->
+  <section id="home" class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="grid-pattern"></div>
+    </div>
+
+    <div class="hero-body">
+      <div class="hero-badge reveal">
+        <span class="pulse-dot"></span>
+        <span data-i18n="hero.badge">Digital Engineering Partner</span>
+      </div>
+
+      <h1 class="hero-title reveal delay-1">
+        <span data-i18n="hero.title1">Build. Scale.</span><br>
+        <span class="gradient-text" data-i18n="hero.title2">Modernize.</span>
+      </h1>
+
+      <p class="hero-sub reveal delay-2" data-i18n="hero.subtitle">
+        Binary Droplet combines product thinking, software architecture, and delivery
+        discipline to turn ideas into resilient digital systems — across mobile, web,
+        cloud, and AI.
+      </p>
+
+      <div class="hero-actions reveal delay-3">
+        <a href="#services" class="btn btn-primary btn-lg" data-i18n="hero.btnServices">Explore Services</a>
+        <a href="#contact"  class="btn btn-ghost  btn-lg" data-i18n="hero.btnProject">Start a Project</a>
+      </div>
+
+      <div class="hero-stats reveal delay-4">
+        <div class="hero-stat">
+          <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+          <span class="stat-lbl" data-i18n="hero.statProjects">Projects Delivered</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+          <span class="stat-lbl" data-i18n="hero.statTech">Technologies</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-num" data-target="8">0</span><span class="stat-plus">+</span>
+          <span class="stat-lbl" data-i18n="hero.statIndustries">Industries Served</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#services" class="scroll-hint" aria-label="Scroll down">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span data-i18n="hero.scroll">Scroll to explore</span>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════ SERVICES ════════════════════════ -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-head scroll-reveal">
+        <span class="eyebrow" data-i18n="services.eyebrow">What We Do</span>
+        <h2 data-i18n="services.title">End-to-End Digital Engineering</h2>
+        <p data-i18n="services.subtitle">From greenfield builds to legacy modernisation — we cover the full delivery spectrum with a single trusted partner.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="card service-card scroll-reveal" style="--d:0ms">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="2" width="14" height="20" rx="2"/>
+              <circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.mobile.title">Mobile Development</h3>
+          <p data-i18n="services.mobile.desc">Native iOS, Android, and cross-platform apps using Swift, Kotlin, Flutter, and React Native — from MVP to enterprise-grade release.</p>
+          <ul class="tag-row">
+            <li>Swift / SwiftUI</li><li>Kotlin</li><li>Flutter</li><li>React Native</li>
+          </ul>
+        </article>
+
+        <article class="card service-card scroll-reveal" style="--d:80ms">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.web.title">Web Development</h3>
+          <p data-i18n="services.web.desc">Modern websites, SaaS platforms, admin portals, and REST / GraphQL APIs — built with React, Next.js, Node.js, Python, and more.</p>
+          <ul class="tag-row">
+            <li>React / Next.js</li><li>Node.js</li><li>Python</li><li>TypeScript</li>
+          </ul>
+        </article>
+
+        <article class="card service-card scroll-reveal" style="--d:160ms">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"/>
+              <polyline points="8 6 2 12 8 18"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.custom.title">Custom Software</h3>
+          <p data-i18n="services.custom.desc">Bespoke systems for unique business processes — automation, internal tooling, workflow orchestration, and platform integrations.</p>
+          <ul class="tag-row">
+            <li>BPA</li><li>API-First</li><li>Event-Driven</li><li>SOA</li>
+          </ul>
+        </article>
+
+        <article class="card service-card scroll-reveal" style="--d:0ms">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 12l2 2 4-4"/>
+              <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.consulting.title">Technical Consulting</h3>
+          <p data-i18n="services.consulting.desc">Product discovery, architecture reviews, codebase audits, MVP strategy, and delivery oversight using Agile and Scrum frameworks.</p>
+          <ul class="tag-row">
+            <li>Architecture</li><li>MVP Strategy</li><li>Agile / Scrum</li><li>Discovery</li>
+          </ul>
+        </article>
+
+        <article class="card service-card scroll-reveal" style="--d:80ms">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.cloud.title">Cloud &amp; DevOps</h3>
+          <p data-i18n="services.cloud.desc">AWS, Azure, and GCP deployments, containerisation, Kubernetes orchestration, CI/CD pipelines, and infrastructure as code with Terraform.</p>
+          <ul class="tag-row">
+            <li>AWS / Azure / GCP</li><li>Docker / K8s</li><li>Terraform</li><li>CI/CD</li>
+          </ul>
+        </article>
+
+        <article class="card service-card scroll-reveal" style="--d:160ms">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3 data-i18n="services.uiux.title">UI/UX &amp; Rebranding</h3>
+          <p data-i18n="services.uiux.desc">UX audits, design systems, Figma prototyping, WCAG accessibility improvements, and digital rebranding for modern product experiences.</p>
+          <ul class="tag-row">
+            <li>Figma</li><li>Design Systems</li><li>WCAG</li><li>Rebranding</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ TECHNOLOGIES ══════════════════════ -->
+  <section id="technologies" class="section section-alt">
+    <div class="container">
+      <div class="section-head scroll-reveal">
+        <span class="eyebrow" data-i18n="tech.eyebrow">Our Stack</span>
+        <h2 data-i18n="tech.title">Technologies We Work With</h2>
+        <p data-i18n="tech.subtitle">A practical, modern stack selected for scalability, delivery speed, and long-term maintainability.</p>
+      </div>
+
+      <div class="tech-table scroll-reveal">
+
+        <div class="tech-row">
+          <span class="tech-label" data-i18n="tech.frontend">Frontend</span>
+          <div class="tech-chips">
+            <span>React</span><span>Next.js</span><span>Vue</span><span>Angular</span>
+            <span>TypeScript</span><span>Tailwind CSS</span><span>PWA</span>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-label" data-i18n="tech.mobile">Mobile</span>
+          <div class="tech-chips">
+            <span>Swift</span><span>SwiftUI</span><span>Kotlin</span>
+            <span>Jetpack Compose</span><span>Flutter</span><span>React Native</span>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-label" data-i18n="tech.backend">Backend</span>
+          <div class="tech-chips">
+            <span>Node.js</span><span>NestJS</span><span>Python</span><span>Django</span>
+            <span>FastAPI</span><span>.NET</span><span>Java</span><span>Spring Boot</span>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-label" data-i18n="tech.database">Database &amp; Search</span>
+          <div class="tech-chips">
+            <span>PostgreSQL</span><span>MySQL</span><span>MongoDB</span>
+            <span>Redis</span><span>Elasticsearch</span>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-label" data-i18n="tech.cloud">Cloud &amp; DevOps</span>
+          <div class="tech-chips">
+            <span>AWS</span><span>Azure</span><span>GCP</span><span>Docker</span>
+            <span>Kubernetes</span><span>Terraform</span><span>GitHub Actions</span>
+            <span>GitLab CI</span><span>Prometheus</span><span>Grafana</span>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-label" data-i18n="tech.qa">QA &amp; Testing</span>
+          <div class="tech-chips">
+            <span>Jest</span><span>Cypress</span><span>Playwright</span>
+            <span>Selenium</span><span>E2E</span>
+          </div>
+        </div>
+
+        <div class="tech-row">
+          <span class="tech-label" data-i18n="tech.tools">Tools &amp; Design</span>
+          <div class="tech-chips">
+            <span>Figma</span><span>Jira</span><span>Notion</span><span>GitHub</span>
+            <span>Postman</span><span>Firebase</span><span>Supabase</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ AI ═════════════════════════════ -->
+  <section id="ai" class="section ai-section">
+    <div class="container">
+      <div class="ai-layout">
+
+        <div class="ai-intro scroll-reveal">
+          <span class="eyebrow" data-i18n="ai.eyebrow">Intelligent Systems</span>
+          <h2 data-i18n="ai.title">AI That Creates Real Value</h2>
+          <p data-i18n="ai.subtitle">We incorporate AI where it creates measurable impact — not superficial novelty. From conversational assistants to predictive analytics and autonomous workflow orchestration.</p>
+          <a href="#contact" class="btn btn-primary" data-i18n="ai.btn">Explore AI Solutions</a>
+        </div>
+
+        <div class="ai-grid scroll-reveal delay-2">
+
+          <div class="ai-card">
+            <div class="ai-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 data-i18n="ai.chat.title">Conversational Assistants</h4>
+              <p data-i18n="ai.chat.desc">Support copilots and LLM-powered chat experiences</p>
+            </div>
+          </div>
+
+          <div class="ai-card">
+            <div class="ai-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <div>
+              <h4 data-i18n="ai.search.title">LLM Search &amp; Retrieval</h4>
+              <p data-i18n="ai.search.desc">Semantic search, summarisation, and knowledge retrieval</p>
+            </div>
+          </div>
+
+          <div class="ai-card">
+            <div class="ai-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div>
+              <h4 data-i18n="ai.predictive.title">Predictive Analytics</h4>
+              <p data-i18n="ai.predictive.desc">Demand forecasting, retention modelling, behaviour analysis</p>
+            </div>
+          </div>
+
+          <div class="ai-card">
+            <div class="ai-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div>
+              <h4 data-i18n="ai.workflow.title">Workflow Automation</h4>
+              <p data-i18n="ai.workflow.desc">AI agents and orchestration pipelines for operations</p>
+            </div>
+          </div>
+
+          <div class="ai-card">
+            <div class="ai-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </div>
+            <div>
+              <h4 data-i18n="ai.vision.title">Computer Vision</h4>
+              <p data-i18n="ai.vision.desc">Classification, extraction, and inspection workflows</p>
+            </div>
+          </div>
+
+          <div class="ai-card">
+            <div class="ai-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <h4 data-i18n="ai.nlp.title">NLP &amp; Document AI</h4>
+              <p data-i18n="ai.nlp.desc">Tagging, sentiment, classification, and document handling</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════ INDUSTRIES ════════════════════════ -->
+  <section id="industries" class="section section-alt">
+    <div class="container">
+      <div class="section-head scroll-reveal">
+        <span class="eyebrow" data-i18n="industries.eyebrow">Who We Serve</span>
+        <h2 data-i18n="industries.title">Industries We Work In</h2>
+        <p data-i18n="industries.subtitle">Delivering digital solutions across a range of sectors with deep domain awareness and practical engineering.</p>
+      </div>
+
+      <div class="industries-grid scroll-reveal">
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.fintech">Fintech</span>
+        </div>
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.healthcare">Healthcare</span>
+        </div>
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.ecommerce">E-commerce</span>
+        </div>
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"/>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.logistics">Logistics</span>
+        </div>
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.saas">SaaS</span>
+        </div>
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.edtech">EdTech</span>
+        </div>
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.enterprise">Enterprise</span>
+        </div>
+
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <span data-i18n="industries.startups">Startups</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ WHY US ════════════════════════════ -->
+  <section id="why-us" class="section">
+    <div class="container">
+      <div class="section-head scroll-reveal">
+        <span class="eyebrow" data-i18n="why.eyebrow">Our Differentiators</span>
+        <h2 data-i18n="why.title">Why Companies Choose Binary Droplet</h2>
+        <p data-i18n="why.subtitle">Strategic thinking with implementation depth — that's the combination organisations rely on us for.</p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card scroll-reveal" style="--d:0ms">
+          <div class="why-num">01</div>
+          <h3 data-i18n="why.w1.title">Cross-Platform Engineering</h3>
+          <p data-i18n="why.w1.desc">Strong capability across mobile, web, cloud, and AI — a single partner for your entire digital product portfolio.</p>
+        </div>
+
+        <div class="why-card scroll-reveal" style="--d:80ms">
+          <div class="why-num">02</div>
+          <h3 data-i18n="why.w2.title">Business-Aligned Consulting</h3>
+          <p data-i18n="why.w2.desc">Technical decisions connected to business goals, not just engineering preferences or trend-chasing.</p>
+        </div>
+
+        <div class="why-card scroll-reveal" style="--d:160ms">
+          <div class="why-num">03</div>
+          <h3 data-i18n="why.w3.title">AI-Aware Strategy</h3>
+          <p data-i18n="why.w3.desc">Practical AI integration that delivers measurable value without hype-driven complexity or governance risk.</p>
+        </div>
+
+        <div class="why-card scroll-reveal" style="--d:0ms">
+          <div class="why-num">04</div>
+          <h3 data-i18n="why.w4.title">Scalable Architecture</h3>
+          <p data-i18n="why.w4.desc">Systems designed for growth — cloud-native mindset from day one, not retrofitted under load.</p>
+        </div>
+
+        <div class="why-card scroll-reveal" style="--d:80ms">
+          <div class="why-num">05</div>
+          <h3 data-i18n="why.w5.title">Transparent Delivery</h3>
+          <p data-i18n="why.w5.desc">Clear communication, realistic timelines, and visible progress throughout every engagement stage.</p>
+        </div>
+
+        <div class="why-card scroll-reveal" style="--d:160ms">
+          <div class="why-num">06</div>
+          <h3 data-i18n="why.w6.title">Full Delivery Model</h3>
+          <p data-i18n="why.w6.desc">Greenfield builds, modernisation, and rebranding — all under one roof with a single point of accountability.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ CONTACT CTA ════════════════════════ -->
+  <section id="contact" class="section cta-section">
+    <div class="cta-bg" aria-hidden="true">
+      <div class="cta-blob cb-1"></div>
+      <div class="cta-blob cb-2"></div>
+    </div>
+    <div class="container">
+      <div class="cta-body scroll-reveal">
+        <span class="eyebrow" data-i18n="cta.eyebrow">Let's Build Together</span>
+        <h2 data-i18n="cta.title">Ready to Start Your Next Digital Product?</h2>
+        <p data-i18n="cta.subtitle">Whether you're launching something new, scaling an existing system, or modernising a legacy platform — Binary Droplet is ready to partner with you from discovery to delivery.</p>
+        <a href="mailto:hello@binarydroplet.com" class="btn btn-primary btn-lg cta-email-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <span data-i18n="cta.btn">Get in Touch</span>
+        </a>
+        <div class="cta-perks">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="cta.perk1">Free Discovery Call</span>
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="cta.perk2">No-Obligation Assessment</span>
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n="cta.perk3">48 hr Response Time</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ══════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <img id="footer-logo" src="assets/logo_dark.png" alt="Binary Droplet">
+          <p data-i18n="footer.desc">Building intelligent, scalable, and maintainable digital products that help organisations move faster, serve users better, and adapt confidently to change.</p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h5 data-i18n="footer.colServices">Services</h5>
+            <a href="#services" data-i18n="footer.linkMobile">Mobile Development</a>
+            <a href="#services" data-i18n="footer.linkWeb">Web Development</a>
+            <a href="#services" data-i18n="footer.linkCustom">Custom Software</a>
+            <a href="#services" data-i18n="footer.linkCloud">Cloud &amp; DevOps</a>
+            <a href="#services" data-i18n="footer.linkUiux">UI/UX &amp; Rebranding</a>
+          </div>
+          <div class="footer-col">
+            <h5 data-i18n="footer.colSolutions">Solutions</h5>
+            <a href="#ai"       data-i18n="footer.linkAi">AI Integration</a>
+            <a href="#services" data-i18n="footer.linkConsulting">Technical Consulting</a>
+            <a href="#services" data-i18n="footer.linkModernisation">App Modernisation</a>
+            <a href="#why-us"   data-i18n="footer.linkArchitecture">Architecture Review</a>
+          </div>
+          <div class="footer-col">
+            <h5 data-i18n="footer.colCompany">Company</h5>
+            <a href="#why-us"      data-i18n="footer.linkWhy">Why Binary Droplet</a>
+            <a href="#industries"  data-i18n="footer.linkIndustries">Industries</a>
+            <a href="#technologies" data-i18n="footer.linkTech">Technologies</a>
+            <a href="#contact"     data-i18n="footer.linkContact">Contact</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer.copyright">© 2025 Binary Droplet. All rights reserved.</p>
+        <div class="footer-values">
+          <span data-i18n="footer.val1">Engineering Excellence</span>
+          <span aria-hidden="true">·</span>
+          <span data-i18n="footer.val2">Transparency</span>
+          <span aria-hidden="true">·</span>
+          <span data-i18n="footer.val3">Product Mindset</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="btt" class="btt" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <script src="js/translations.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
